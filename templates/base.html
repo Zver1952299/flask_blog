@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock title %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="header-title">Мой блог</div>
+        <div class="header-buttons">
+          <a href="/about" class="btn">О блоге</a>
+          <a href="/create" class="btn btn-primary">Добавить статью</a>
+        </div>
+      </div>
+    </header>
+    <div class="container">{% block content %}{% endblock content %}</div>
+    <footer>© 2025 Евгений. Все права защищены.</footer>
+  </body>
+</html>

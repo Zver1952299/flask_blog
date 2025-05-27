@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %} Мой блог {% endblock title %} {%
+block content %}
+<div class="post">
+  <h2 class="post-title">Первый пост</h2>
+  <p class="post-text">
+    Привет, друзья! Сегодня изучаю Flask и кайфую от возможностей этого лёгкого
+    фреймворка.
+  </p>
+  <button class="btn btn-link">Читать полностью</button>
+</div>
+
+<div class="post">
+  <h2 class="post-title">Второй пост</h2>
+  <p class="post-text">
+    Flask — это сила! Вот бы ещё добавить авторизацию и базу данных.
+  </p>
+  <button class="btn btn-link">Читать полностью</button>
+</div>
+{% endblock content %}

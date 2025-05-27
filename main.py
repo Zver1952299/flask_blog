@@ -1,15 +1,19 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from datetime import datetime, timezone
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 @app.route('/')
@@ -44,7 +48,7 @@ def create():
 
 @app.route('/post/<int:id>')
 def post(id):
-    post = Post.query.get(id)
+    post = Post.query.get_or_404(id)
     return render_template('post.html', post=post)
 
 

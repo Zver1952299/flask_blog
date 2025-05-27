@@ -1,19 +1,12 @@
 {% extends "base.html" %} {% block title %} Мой блог {% endblock title %} {%
-block content %}
+block content %} {% if posts %} {% for post in posts %}
 <div class="post">
-  <h2 class="post-title">Первый пост</h2>
-  <p class="post-text">
-    Привет, друзья! Сегодня изучаю Flask и кайфую от возможностей этого лёгкого
-    фреймворка.
-  </p>
-  <button class="btn btn-link">Читать полностью</button>
+  <h2 class="post-title">{{ post.title }}</h2>
+  <p class="post-text">{{ post.text }}</p>
+  <a class="btn btn-link" href="/post/{{ post.id }}">Читать полностью</a>
 </div>
-
+{% endfor %} {% else %}
 <div class="post">
-  <h2 class="post-title">Второй пост</h2>
-  <p class="post-text">
-    Flask — это сила! Вот бы ещё добавить авторизацию и базу данных.
-  </p>
-  <button class="btn btn-link">Читать полностью</button>
+  <h2>Нет статей</h2>
 </div>
-{% endblock content %}
+{% endif %} {% endblock content %}

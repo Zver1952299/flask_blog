@@ -1,13 +1,21 @@
 {% extends "base.html" %} {% block title %} Мой блог {% endblock title %} {%
 block content %}
 <div class="form-section">
-  <h2>Новая статья</h2>
+  <h2>Редактирование статьи</h2>
   <form method="post">
     <label for="title">Заголовок:</label>
-    <input type="text" id="title" name="title" required />
+    <input
+      type="text"
+      id="title"
+      name="title"
+      value="{{ post.title }}"
+      required
+    />
 
     <label for="content">Текст статьи:</label>
-    <textarea id="content" name="text" rows="8" required></textarea>
+    <textarea id="content" name="text" rows="8" required>
+{{ post.text }}</textarea
+    >
 
     <button type="submit" class="btn btn-primary">Опубликовать</button>
   </form>

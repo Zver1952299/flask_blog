@@ -2,6 +2,10 @@
 block content %}
 <div class="post">
   <h2 class="post-title">{{ post.title }}</h2>
+  <p class="post-date">
+    {{ post.date.strftime('%d %B %Y, %H:%M') if post.date else 'Дата не указана'
+    }}
+  </p>
   <p class="post-text">{{ post.text }}</p>
 
   <div class="button-group">

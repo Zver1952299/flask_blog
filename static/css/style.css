@@ -215,3 +215,10 @@ margin-right: 30px;
 .about-section h2 {
 margin-top: 0;
 }
+
+.post-date {
+  color: gray;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  font-style: italic;
+}

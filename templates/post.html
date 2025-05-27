@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %} Мой блог {% endblock title %} {%
+block content %}
+<div class="post">
+  <h2 class="post-title">{{ post.title }}</h2>
+  <p class="post-text">{{ post.text }}</p>
+
+  <div class="button-group">
+    <a class="btn btn-link" href="/">Назад</a>
+    <a class="btn btn-edit" href="/post/{{ post.id }}/update">Редактировать</a>
+    <a class="btn btn-delete" href="/post/{{ post.id }}/del">Удалить</a>
+  </div>
+</div>
+{% endblock content %}

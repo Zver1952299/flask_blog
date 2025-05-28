@@ -16,8 +16,17 @@
           <a href="/"> Мой блог </a>
         </div>
         <div class="header-buttons">
-          <a href="/about" class="btn">О блоге</a>
-          <a href="/create" class="btn btn-primary">Добавить статью</a>
+          <a href="{{ url_for('about') }}" class="btn">О блоге</a>
+          {% if 'user' not in session %}<a
+            href="{{ url_for('login') }}"
+            class="btn"
+            >Войти</a
+          >{% else %}<a href="{{ url_for('logout') }}" class="btn">Выйти</a>{%
+          endif %}
+
+          <a href="{{ url_for('create') }}" class="btn btn-primary"
+            >Добавить статью</a
+          >
         </div>
       </div>
     </header>

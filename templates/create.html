@@ -3,13 +3,13 @@ block content %}
 <div class="form-section">
   <h2>Новая статья</h2>
   <form method="post">
-    <label for="title">Заголовок:</label>
-    <input type="text" id="title" name="title" required />
+    {{ form.hidden_tag() }}
+    <label for="{{ form.title.id }}">{{ form.title.label.text }}</label>
+    {{ form.title(size=40) }}
 
-    <label for="content">Текст статьи:</label>
-    <textarea id="content" name="text" rows="8" required></textarea>
-
-    <button type="submit" class="btn btn-primary">Опубликовать</button>
+    <label for="{{ form.content.id }}">{{ form.content.label.text }}</label>
+    {{ form.content(rows=5, cols=40) }} {{ form.submit(class_="btn btn-primary")
+    }}
   </form>
 </div>
 {% endblock content %}
